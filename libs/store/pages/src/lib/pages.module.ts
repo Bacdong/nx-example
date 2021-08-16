@@ -1,23 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleItemComponent } from './article-item/article-item.component';
+import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { PagesRoutingModule } from './pages-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
-    ]),
+    RouterModule,
+    PagesRoutingModule,
   ],
   declarations: [
     ArticleListComponent,
-    ArticleItemComponent
+    ArticleItemComponent,
+    ArticleDetailComponent
   ],
-  exports: [
-    ArticleListComponent,
-    ArticleItemComponent
-  ],
+  exports: [RouterModule],
 })
-export class StorePagesModule {}
+export class PagesModule {}

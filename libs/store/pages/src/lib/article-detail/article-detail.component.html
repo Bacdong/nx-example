@@ -1,6 +1,8 @@
-<a routerLink="/">
+<h1>Article Detail</h1>
+
+<div *ngIf="article">
   <h3>{{ article.title }}</h3>
   <span>{{ article.brief }}</span>
   <img [src]="article.image" [alt]="article.title">
   <div [innerHTML]="article.content"></div>
-</a>
+</div>

@@ -217,6 +217,31 @@
         }
       }
     },
+    "store-services": {
+      "projectType": "library",
+      "root": "libs/store/services",
+      "sourceRoot": "libs/store/services/src",
+      "prefix": "nx-example",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/store/services"],
+          "options": {
+            "jestConfig": "libs/store/services/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/store/services/src/**/*.ts",
+              "libs/store/services/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "store-shared-services": {
       "projectType": "library",
       "root": "libs/store-shared/services",

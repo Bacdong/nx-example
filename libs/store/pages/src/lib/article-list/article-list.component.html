@@ -1,1 +1,7 @@
-<p>article-list works!</p>
+<ul>
+  <li *ngFor="let article of articles?.results">
+    <nx-example-article-item
+      [article]="article"
+    ></nx-example-article-item>
+  </li>
+</ul>

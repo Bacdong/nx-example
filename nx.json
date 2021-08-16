@@ -46,6 +46,9 @@
     "store-pages": {
       "tags": []
     },
+    "store-services": {
+      "tags": []
+    },
     "store-shared-services": {
       "tags": []
     }

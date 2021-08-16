@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Article } from 'apps/store/src/app/core/models';
 
 @Component({
   selector: 'nx-example-article-item',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-item.component.scss']
 })
 export class ArticleItemComponent implements OnInit {
+  @Input() article!: Article;
 
   constructor() { }
 
