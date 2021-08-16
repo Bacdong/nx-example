@@ -1,6 +1,7 @@
-<a routerLink="/">
-  <h3>{{ article.title }}</h3>
-  <span>{{ article.brief }}</span>
+<a [routerLink]="['/articles', article.slug + '-a' + article.id]">
+  <div>
+    <h3>{{ article.title }}</h3>
+    <span>{{ article.brief }}</span>
+  </div>
   <img [src]="article.image" [alt]="article.title">
-  <div [innerHTML]="article.content"></div>
 </a>

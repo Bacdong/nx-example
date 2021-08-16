@@ -5,10 +5,12 @@ import { ArticleItemComponent } from './article-item/article-item.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule,
     PagesRoutingModule,
   ],

@@ -13,7 +13,8 @@ export class ArticleListComponent implements OnInit, OnDestroy {
 
   subscription = new Subscription();
   articles!: ArticleList;
-  filterParams: any;
+  filterParams: any = {};
+  currentPage: number = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,11 +39,13 @@ export class ArticleListComponent implements OnInit, OnDestroy {
       this.route.queryParams.subscribe((params) => {
         for (let key in params) {
           let value = params[key];
+          console.log(key, value);
+          
           if (value && value != '') {
             this.filterParams[key] = value;
           }
         }
-  
+        
         this._getArticleList(this.filterParams);
       })
     );
@@ -62,6 +65,12 @@ export class ArticleListComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigateByUrl(currentUrl);
     })
+  }
+
+  loadMore() {
+    ++this.currentPage;
+    this.filterParams['page'] = this.currentPage;
+    return this._getArticleList(this.filterParams);
   }
 
 }

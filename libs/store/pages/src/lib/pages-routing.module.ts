@@ -4,13 +4,9 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ArticleListComponent,
-    children: [
-      { path: 'item/:slug', component: ArticleDetailComponent }
-    ]
-  }
+  { path: '', component: ArticleListComponent },
+  { path: 'articles/search', component: ArticleListComponent },
+  { path: 'articles/:slug', component: ArticleDetailComponent }
 ]
 
 @NgModule({

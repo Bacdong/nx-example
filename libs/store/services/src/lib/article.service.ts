@@ -9,7 +9,8 @@ import { HttpParams } from "@angular/common/http";
 })
 
 export class ArticleService {
-  limit: number = 5;
+  limit: number = 2;
+  sortby: string = 'oldest';
 
   articles = new Subject<ArticleList>();
 
@@ -17,11 +18,11 @@ export class ArticleService {
 
   getArticleList(params: any) {
     this.apiService.get(
-      `article/post?limit=${this.limit}`, 
+      `article/post?limit=${this.limit}&sortby=${this.sortby}`, 
       new HttpParams({ fromObject: params })
     ).subscribe((res: ApiResponse) => {
       if (!res.success) {
-        console.log(res.error_message);
+        alert(res.error_message);
         return;
       }
 
@@ -33,7 +34,7 @@ export class ArticleService {
     this.apiService.get(`article/post/${id}`)
       .subscribe((res: ApiResponse) => {
         if (!res.success) {
-          console.log(res.error_message);
+          alert(res.error_message);
           return;
         }
 

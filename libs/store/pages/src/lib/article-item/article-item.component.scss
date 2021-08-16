@@ -1,0 +1,30 @@
+a {
+  display: block;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  line-height: 150%;
+  text-decoration: none;
+  color: black;
+  transition: all ease 325ms;
+  &:hover,
+  &:active { 
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3); 
+    transform: translateY(-6px);
+  }
+  span { 
+    font-size: 14px;
+    color: #666; 
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  img {
+    object-fit: contain;
+    object-position: center;
+  }
+}

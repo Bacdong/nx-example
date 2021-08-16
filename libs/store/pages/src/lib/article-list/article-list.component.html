@@ -1,3 +1,5 @@
+<p>Article List Page</p>
+
 <ul>
   <li *ngFor="let article of articles?.results">
     <nx-example-article-item
@@ -5,3 +7,5 @@
     ></nx-example-article-item>
   </li>
 </ul>
+
+<a class="load-more" (click)="loadMore()">More Article</a>

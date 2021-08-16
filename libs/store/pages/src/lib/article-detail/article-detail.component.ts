@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Article } from 'apps/store/src/app/core/models';
 import { ArticleService } from 'apps/store/src/app/core/services';
@@ -9,7 +9,8 @@ import { extractUrl } from 'apps/store/src/app/core/ultils';
 @Component({
   selector: 'nx-example-article-detail',
   templateUrl: './article-detail.component.html',
-  styleUrls: ['./article-detail.component.scss']
+  styleUrls: ['./article-detail.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ArticleDetailComponent implements OnInit, OnDestroy {
 
