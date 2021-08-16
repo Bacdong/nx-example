@@ -26,6 +26,56 @@
         }
       }
     },
+    "services": {
+      "projectType": "library",
+      "root": "libs/services",
+      "sourceRoot": "libs/services/src",
+      "prefix": "nx-example",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/services"],
+          "options": {
+            "jestConfig": "libs/services/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/services/src/**/*.ts",
+              "libs/services/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "shared-services": {
+      "projectType": "library",
+      "root": "libs/shared/services",
+      "sourceRoot": "libs/shared/services/src",
+      "prefix": "nx-example",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/services"],
+          "options": {
+            "jestConfig": "libs/shared/services/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/services/src/**/*.ts",
+              "libs/shared/services/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "store": {
       "projectType": "application",
       "root": "apps/store",
@@ -138,6 +188,56 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/store-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "store-pages": {
+      "projectType": "library",
+      "root": "libs/store/pages",
+      "sourceRoot": "libs/store/pages/src",
+      "prefix": "nx-example",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/store/pages"],
+          "options": {
+            "jestConfig": "libs/store/pages/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/store/pages/src/**/*.ts",
+              "libs/store/pages/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "store-shared-services": {
+      "projectType": "library",
+      "root": "libs/store-shared/services",
+      "sourceRoot": "libs/store-shared/services/src",
+      "prefix": "nx-example",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/store-shared/services"],
+          "options": {
+            "jestConfig": "libs/store-shared/services/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/store-shared/services/src/**/*.ts",
+              "libs/store-shared/services/src/**/*.html"
+            ]
           }
         }
       }

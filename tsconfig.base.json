@@ -15,7 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-example/core/models": ["libs/core/models/src/index.ts"]
+      "@nx-example/core/models": ["libs/core/models/src/index.ts"],
+      "@nx-example/services": ["libs/services/src/index.ts"],
+      "@nx-example/shared/services": ["libs/shared/services/src/index.ts"],
+      "@nx-example/store-shared/services": [
+        "libs/store-shared/services/src/index.ts"
+      ],
+      "@nx-example/store/pages": ["libs/store/pages/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

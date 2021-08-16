@@ -30,12 +30,24 @@
     "core-models": {
       "tags": []
     },
+    "services": {
+      "tags": []
+    },
+    "shared-services": {
+      "tags": []
+    },
     "store": {
       "tags": []
     },
     "store-e2e": {
       "tags": [],
       "implicitDependencies": ["store"]
+    },
+    "store-pages": {
+      "tags": []
+    },
+    "store-shared-services": {
+      "tags": []
     }
   }
 }
