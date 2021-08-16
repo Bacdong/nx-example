@@ -1,6 +1,31 @@
 {
   "version": 1,
   "projects": {
+    "core-models": {
+      "projectType": "library",
+      "root": "libs/core/models",
+      "sourceRoot": "libs/core/models/src",
+      "prefix": "nx-example",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/models"],
+          "options": {
+            "jestConfig": "libs/core/models/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/models/src/**/*.ts",
+              "libs/core/models/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "store": {
       "projectType": "application",
       "root": "apps/store",

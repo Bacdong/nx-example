@@ -27,6 +27,9 @@
     ]
   },
   "projects": {
+    "core-models": {
+      "tags": []
+    },
     "store": {
       "tags": []
     },
