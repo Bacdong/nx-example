@@ -28,7 +28,7 @@ export class NewsService {
   }
 
   updateNewsDetail(news: News) {
-    this.apiService.put(`CMSTinTucDanhMucs`, { news })
+    this.apiService.put(`CMSTinTucDanhMucs`, news)
       .subscribe((res: ApiResponse) => {
         if (!res.isOk) {
           alert(res.errorMessages);

@@ -13,15 +13,8 @@ import { Subscription } from 'rxjs';
 export class NewsEditComponent implements OnInit, OnDestroy {
 
   subscription = new Subscription();
-  newsList!: NewsList;
   newsDetail!: News;
-  filterBody = {
-    'pageSize': 0,
-    'pageNumber': 1,
-    'sortName': 'id',
-    'sortASC': true,
-    'keyword': ''
-  }
+  id!: number;
 
   constructor(
     private router: Router,
@@ -37,15 +30,15 @@ export class NewsEditComponent implements OnInit, OnDestroy {
   editForm = this.formBuilder.group({
     id: [null, Validators.required],
     tenDanhMuc: [null, Validators.required],
-    ghiChu: ['test update', Validators.required],
-    cssClass: ['test update', Validators.required],
+    ghiChu: [null, Validators.required],
+    cssClass: [null, Validators.required],
     soThuTu: [0, Validators.required],
     isSuDung: [true, Validators.required],
     isBinhLuan: [null, Validators.required],
     idTemplate: [0, Validators.required],
-    nameTemplate: ['test update', Validators.required],
+    nameTemplate: [null, Validators.required],
     cultureId: [0, Validators.required],
-    cultureName: ['test update', Validators.required],
+    cultureName: [null, Validators.required],
     cultureIdMap: [0, Validators.required],
     forWeb: [0, Validators.required],
   });
@@ -59,28 +52,15 @@ export class NewsEditComponent implements OnInit, OnDestroy {
       })
     );
 
-    this._fetchNewsList(this.filterBody);
-
-    let id;
     this.subscription.add(
       this.route.queryParams.subscribe((params) => {
         for (let key in params) {
           let value = params[key];
           if (key == 'news_id') {
-            id = value;
+            this.id = value;
           }
         }
       })
-    )
-  }
-
-  private _fetchNewsList(filters: any) {
-    this.newsService.fetchNewListByFilter(filters);
-    this.subscription.add(
-      this.newsService.newsList.subscribe(
-        (newsList: NewsList) => {this.newsList = newsList; console.log(this.newsList);
-        }
-      )
     )
   }
 
