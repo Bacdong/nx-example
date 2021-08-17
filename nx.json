@@ -30,6 +30,22 @@
     "core-models": {
       "tags": []
     },
+    "news": {
+      "tags": []
+    },
+    "news-e2e": {
+      "tags": [],
+      "implicitDependencies": ["news"]
+    },
+    "news-pages": {
+      "tags": []
+    },
+    "news-services": {
+      "tags": []
+    },
+    "pages": {
+      "tags": []
+    },
     "services": {
       "tags": []
     },
