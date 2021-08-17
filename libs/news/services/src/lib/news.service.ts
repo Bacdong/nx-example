@@ -22,7 +22,7 @@ export class NewsService {
           return;
         }
 
-        this.newsList.next(res.results);
+        this.newsList.next(res.result);
       });
   }
 
@@ -34,7 +34,7 @@ export class NewsService {
           return;
         }
 
-        this.newsDetail.next(res.results);
+        this.newsDetail.next(res.result);
       });
   }
 
@@ -46,7 +46,7 @@ export class NewsService {
           return;
         }
 
-        this.newsAdd.next(res.results);
+        this.newsAdd.next(res.result);
       });
   }
 
@@ -58,7 +58,7 @@ export class NewsService {
           return;
         }
 
-        this.newsDelete.next(res.results);
+        this.newsDelete.next(res.result);
       });
   }
 }

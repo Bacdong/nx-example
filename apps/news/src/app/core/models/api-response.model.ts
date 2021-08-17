@@ -1,5 +1,5 @@
 export interface ApiResponse {
-  results: any;
+  result: any;
   isOk: boolean;
   errorMessages: any[];
   warningMessages: any[];

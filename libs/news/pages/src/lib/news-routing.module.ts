@@ -5,8 +5,13 @@ import { NewsEditComponent } from "./news-edit/news-edit.component";
 import { NewsListComponent } from "./news-list/news-list.component";
 
 const routes: Routes = [
-  { path: '', component: NewsListComponent },
-  { path: 'news/create', component: NewsAddComponent },
+  { 
+    path: '', 
+    component: NewsListComponent,
+    children: [
+      { path: 'create', component: NewsAddComponent },
+    ]
+  },
   { path: 'news/:slug/edit', component: NewsEditComponent },
 ];
 
