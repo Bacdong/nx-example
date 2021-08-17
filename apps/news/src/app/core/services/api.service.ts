@@ -30,14 +30,14 @@ export class ApiService {
 
   post(path: string, body: Object = {}): Observable<any> {
     return this.http.post(
-      `${environment.api_url}/v${environment.api_version}/CMS/${path}/`,
+      `${environment.api_url}/v${environment.api_version}/CMS/${path}`,
       JSON.stringify(body)
     ).pipe(catchError(this._formatErrors));
   }
 
   delete(path: string, body: Object = {}): Observable<any> {
     return this.http.delete(
-      `${environment.api_url}/v${environment.api_version}/CMS/${path}/`, { body }
+      `${environment.api_url}/v${environment.api_version}/CMS/${path}`, { body }
     ).pipe(catchError(this._formatErrors));
   }
 }

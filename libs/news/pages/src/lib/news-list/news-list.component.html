@@ -1,4 +1,5 @@
 <h3>NEWS LIST PAGE</h3>
+<a [routerLink]="['/news/create']">Create a news</a>
 
 <ul *ngIf="newsList">
   <li *ngFor="let news of newsList.items">

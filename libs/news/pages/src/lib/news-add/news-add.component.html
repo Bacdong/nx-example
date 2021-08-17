@@ -3,8 +3,23 @@
 <form [formGroup]="createForm" (ngSubmit)="createNews()">
   <input 
     type="text" 
-    placeholder="News category name"
+    placeholder="Ten danh muc"
     formControlName="tenDanhMuc"
+  > <br/>
+  <input 
+    type="text" 
+    placeholder="Ghi chu"
+    formControlName="ghiChu"
+  > <br/>
+  <input 
+    type="text" 
+    placeholder="Culture name"
+    formControlName="cultureName"
+  > <br/>
+  <input 
+    type="text" 
+    placeholder="Template name"
+    formControlName="nameTemplate"
   > <br/>
   <button [disabled]="!this.createForm.valid">Create</button>
 </form>

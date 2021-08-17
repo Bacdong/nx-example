@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { NewsService } from 'libs/news/services/src/lib/news.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'nx-example-news-add',
@@ -18,15 +16,15 @@ export class NewsAddComponent implements OnInit {
 
   createForm = this.formBuilder.group({
     tenDanhMuc: [null, Validators.required],
-    ghiChu: ['test create', Validators.required],
-    cssClass: ['test create', Validators.required],
+    ghiChu: [null, Validators.required],
+    cssClass: ['Data Created Test', Validators.required],
     soThuTu: [0, Validators.required],
-    isSuDung: ['true', Validators.required],
-    isBinhLuan: ['null', Validators.required],
+    isSuDung: [true, Validators.required],
+    isBinhLuan: [true, Validators.required],
     idTemplate: [0, Validators.required],
-    nameTemplate: ['test create', Validators.required],
+    nameTemplate: [null, Validators.required],
     cultureId: [0, Validators.required],
-    cultureName: ['test create', Validators.required],
+    cultureName: [null, Validators.required],
     cultureIdMap: [0, Validators.required],
     forWeb: [0, Validators.required],
   });

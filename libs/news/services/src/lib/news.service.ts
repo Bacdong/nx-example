@@ -41,7 +41,9 @@ export class NewsService {
   }
 
   createNews(news: News) {
-    this.apiService.post(`CMSTinTucDanhMucs`, { news })
+    console.log('news', news);
+    
+    this.apiService.post(`CMSTinTucDanhMucs`, news)
       .subscribe((res: ApiResponse) => {
         if (!res.isOk) {
           alert(res.errorMessages);
@@ -54,7 +56,7 @@ export class NewsService {
   }
 
   deleteNews(body: any) {
-    this.apiService.delete(`CMSTinTucDanhMucs`, { body })
+    this.apiService.delete(`CMSTinTucDanhMucs`, body)
       .subscribe((res: ApiResponse) => {
         if (!res.isOk) {
           alert(res.errorMessages);
