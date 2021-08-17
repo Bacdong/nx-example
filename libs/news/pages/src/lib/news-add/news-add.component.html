@@ -1,1 +1,10 @@
-<p>news-add works!</p>
+<h3>CREATE NEWS PAGE</h3>
+
+<form [formGroup]="createForm" (ngSubmit)="createNews()">
+  <input 
+    type="text" 
+    placeholder="News category name"
+    formControlName="tenDanhMuc"
+  > <br/>
+  <button [disabled]="!this.createForm.valid">Create</button>
+</form>

@@ -5,14 +5,10 @@ import { NewsEditComponent } from "./news-edit/news-edit.component";
 import { NewsListComponent } from "./news-list/news-list.component";
 
 const routes: Routes = [
-  { 
-    path: '', 
-    component: NewsListComponent,
-    children: [
-      { path: 'create', component: NewsAddComponent },
-    ]
-  },
-  { path: 'news/:slug/edit', component: NewsEditComponent },
+  { path: '', component: NewsListComponent },
+  { path: 'news/search', component: NewsListComponent },
+  { path: 'news/create', component: NewsAddComponent },
+  { path: 'news/edit', component: NewsEditComponent },
 ];
 
 @NgModule({

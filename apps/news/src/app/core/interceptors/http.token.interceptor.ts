@@ -11,7 +11,7 @@ export class HttpTokenInterceptor implements HttpInterceptor {
     const headersConfig: any = {
       "Access-Control-Allow-Origin": "*",
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      'Accept': 'text/plain'
     };
 
     const token = this.jwtService.getToken();

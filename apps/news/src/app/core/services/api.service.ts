@@ -17,27 +17,27 @@ export class ApiService {
 
   get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
     return this.http.get(
-      `${environment.api_url}/v${environment.api_version}/${path}/`, { params }
+      `${environment.api_url}/v${environment.api_version}/CMS/${path}/`, { params }
     ).pipe(catchError(this._formatErrors));
   }
 
   put(path: string, body: Object = {}): Observable<any> {
     return this.http.put(
-      `${environment.api_url}/v${environment.api_version}/${path}/`,
+      `${environment.api_url}/v${environment.api_version}/CMS/${path}/`,
       JSON.stringify(body)
     ).pipe(catchError(this._formatErrors));
   }
 
   post(path: string, body: Object = {}): Observable<any> {
     return this.http.post(
-      `${environment.api_url}/v${environment.api_version}/${path}/`,
+      `${environment.api_url}/v${environment.api_version}/CMS/${path}/`,
       JSON.stringify(body)
     ).pipe(catchError(this._formatErrors));
   }
 
   delete(path: string, body: Object = {}): Observable<any> {
     return this.http.delete(
-      `${environment.api_url}/v${environment.api_version}/${path}/`, { body }
+      `${environment.api_url}/v${environment.api_version}/CMS/${path}/`, { body }
     ).pipe(catchError(this._formatErrors));
   }
 }

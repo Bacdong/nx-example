@@ -1,0 +1,21 @@
+ul {
+  padding: 0;
+  list-style: none;
+  li {
+    & + li { margin-top: 20px; }
+    background: #ccc;
+    padding: 12px;
+    border-radius: 10px;
+    .news-info {
+      span {
+        display: block;
+      }
+    }
+    .news-action {
+      margin-top: 30px;
+      a {
+        & + a { margin-left: 30px; }
+      }
+    }
+  }
+}

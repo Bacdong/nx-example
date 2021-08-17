@@ -1,6 +1,7 @@
 import { Pagination } from "./pagination.model";
 
 export interface News {
+  id: number;
   tenDanhMuc: string;
   ghiChu: string;
   cssClass: string;

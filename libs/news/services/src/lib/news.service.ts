@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { ApiService } from "apps/news/src/app/core/services";
 import { Subject } from "rxjs";
 import { ApiResponse, News, NewsList } from "apps/news/src/app/core/models";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class NewsService {
   newsAdd = new Subject<News>();
   newsDelete = new Subject<News>();
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   fetchNewListByFilter(body: any) {
     this.apiService.post(`CMSTinTucDanhMucs/CMSTinTucDanhMucByFilters`, body)
@@ -34,6 +35,7 @@ export class NewsService {
           return;
         }
 
+        this.router.navigate(['/news/search']);
         this.newsDetail.next(res.result);
       });
   }
@@ -45,19 +47,21 @@ export class NewsService {
           alert(res.errorMessages);
           return;
         }
-
+        
+        this.router.navigate(['/news/search']);
         this.newsAdd.next(res.result);
       });
   }
 
   deleteNews(body: any) {
-    this.apiService.post(`CMSTinTucDanhMucs`, { body })
+    this.apiService.delete(`CMSTinTucDanhMucs`, { body })
       .subscribe((res: ApiResponse) => {
         if (!res.isOk) {
           alert(res.errorMessages);
           return;
         }
 
+        this.router.navigate(['/news/search']);
         this.newsDelete.next(res.result);
       });
   }

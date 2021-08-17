@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiService, HttpTokenInterceptor, JwtService } from './core';
 import { NewsService } from 'libs/news/services';
+import { NewsModule } from 'libs/news/pages/src/lib/news.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
+    NewsModule,
     RouterModule,
     AppRoutingModule,
   ],

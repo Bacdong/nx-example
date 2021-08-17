@@ -1,7 +1,31 @@
 <h3>NEWS LIST PAGE</h3>
 
-<ul>
-  <li>
-    
+<ul *ngIf="newsList">
+  <li *ngFor="let news of newsList.items">
+    <div class="news-info">
+      <h3>News ID: {{ news.id }}</h3>
+      <h4>News category: {{ news.tenDanhMuc }}</h4>
+      <span>Note: {{ news.ghiChu }}</span>
+      <span>CSS Class: {{ news.cssClass }}</span>
+      <span>STT: {{ news.soThuTu }}</span>
+      <span>Use: {{ news.isSuDung }}</span>
+      <span>Allow comment: {{ news.isBinhLuan }}</span>
+      <span>Template ID: {{ news.idTemplate }}</span>
+      <span>Template: {{ news.nameTemplate }}</span>
+      <span>Culture ID: {{ news.cultureId }}</span>
+      <span>Culture name: {{ news.cultureName }}</span>
+      <span>Culture map ID: {{ news.cultureIdMap }}</span>
+      <span>Apply for web: {{ news.forWeb }}</span>
+    </div>
+    <div class="news-action">
+      <a 
+        [routerLink]="['/news/edit']" 
+        [queryParams]="{ news_id: news.id }"
+        queryParamsHandling="merge"
+        class="news-action__edit"
+      >Edit</a>
+
+      <a (click)="deleteNews(news.id)">Delete</a>
+    </div>
   </li>
 </ul>

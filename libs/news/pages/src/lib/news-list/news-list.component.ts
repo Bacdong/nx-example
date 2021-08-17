@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthToken, NewsList } from 'apps/news/src/app/core/models';
 import { AuthService } from 'apps/news/src/app/core/services';
@@ -11,7 +11,7 @@ import { take } from 'rxjs/operators';
   templateUrl: './news-list.component.html',
   styleUrls: ['./news-list.component.scss']
 })
-export class NewsListComponent implements OnInit {
+export class NewsListComponent implements OnInit, OnDestroy {
 
   subscription = new Subscription();
   newsList!: NewsList;
@@ -21,7 +21,7 @@ export class NewsListComponent implements OnInit {
     'pageSize': 0,
     'pageNumber': this.currentPage,
     'sortName': 'id',
-    'sortASC': true,
+    'sortASC': false,
     'keyword': this.keyword
   }
 
@@ -38,14 +38,11 @@ export class NewsListComponent implements OnInit {
     private authService: AuthService,
   ) { }
 
-  ngOnInit(): void {
-    this.authService.login(this.credentials);
-    this.authService.auth.pipe(take(1))
-      .subscribe((auth: AuthToken) => {
-        this.auth = auth;
-        this.authService.setAuth(this.auth);
-      })
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
+  ngOnInit(): void {
     this.subscription.add(
       this.router.events.subscribe((event) => {
         if (event instanceof NavigationEnd) {
@@ -53,8 +50,15 @@ export class NewsListComponent implements OnInit {
         }
       })
     );
+    
+    this.authService.login(this.credentials);
+    this.authService.auth.pipe(take(1))
+      .subscribe((auth: AuthToken) => {
+        this.auth = auth;
+        this.authService.setAuth(this.auth);
+      })
 
-    // this._fetchNewsListByFilters(this.filterBody);
+    this._fetchNewsListByFilters(this.filterBody);
   }
 
   private _fetchNewsListByFilters(filters: any) {
@@ -69,10 +73,21 @@ export class NewsListComponent implements OnInit {
 
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true })
-      .then(() => {
-        this.router.navigateByUrl(currentUrl);
-      })
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl(currentUrl);
+    })
+  }
+
+  deleteNews(id: any) {
+    alert(id);
+    let idArr = [];
+    idArr.push(id);
+    let data: any = {}
+    data['ids'] = idArr;
+    
+    this.newsService.deleteNews(data);
+    this._fetchNewsListByFilters(this.filterBody);
+    this.reloadCurrentRoute();
   }
 
 }

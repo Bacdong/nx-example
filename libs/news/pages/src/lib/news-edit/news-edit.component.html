@@ -1,1 +1,23 @@
-<p>news-edit works!</p>
+<h3>NEWS EDIT PAGE</h3>
+
+
+<form [formGroup]="editForm" (ngSubmit)="updateNews()">
+  <input 
+    type="text" 
+    placeholder="ID"
+    [value]="newsDetail.id"
+    formControlName="id"
+  > <br/>
+  <input 
+    type="text" 
+    placeholder="News category name"
+    [value]="newsDetail.tenDanhMuc"
+    formControlName="tenDanhMuc"
+  > <br/>
+  <input 
+    type="checkbox" name="" id=""
+    formControlName="isBinhLuan"
+    [checked]="newsDetail.isBinhLuan ? newsDetail.isBinhLuan : false"
+  > allow comment? <br/>
+  <button [disabled]="!this.editForm.valid">Update</button>
+</form>

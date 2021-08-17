@@ -3,10 +3,10 @@ import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/news' },
-  { path: 
-    'news', 
+  { 
+    path: 'news', 
     loadChildren: () => import('libs/news/pages/src/lib/news.module')
-      .then(m => m.NewsModule) 
+      .then(m => m.NewsModule)  
   },
 ];
 

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://dev.api-cms.epmt.com.vn:2051/api',
+  // api_url: 'http://dev.api-cms.epmt.com.vn:2051/api',
+  api_url: 'http://dev.apivnu-gateway.epmt.com.vn:2051/api',
   api_version: 1.0,
 };
 
